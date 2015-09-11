@@ -24,9 +24,10 @@ if (Meteor.isClient) {
       Meteor.call("addResolution", title);
       
       event.target.title.value = "";
+      console.log("New Task!");
       return false;
     },
-    'change .hide-finished': function(event) {
+    'change #checkme': function(event) {
       Session.set('hideFinished', event.target.checked);
     }
   });
@@ -34,7 +35,8 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+    //var myDB = new MongoInternals.RemoteCollectionDriver("mongodb://client-7e781c65:7cee2107-08bc-ff88-9771-7467c01c12c1@production-db-d3.meteor.io:27017/preso_meteor_com");
+    //Resolutions = new Mongo.Collection('resolutions', {_driver: myDB});
   });
 
   Meteor.publish("resolutionsPub", function() {

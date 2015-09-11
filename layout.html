@@ -5,25 +5,26 @@
 <body>
 	<div class="container">
 		<header>
-			<h1>Monthly Resolutions</h1>
-
-			<label class="hide-finished">
-				<input type="checkbox" checked="{{hideFinished}}">
-				Hide Finished Resolutions
-			</label>
-
+		{{> loginButtons }}
 			{{#if currentUser}}
-			<form class="new-resolution">
-				<input type="text" name="title" placeholder="A new resolution">
-				<input type="submit" value="Add">
-			</form>
+				<br><br><input type="checkbox" checked="{{hideFinished}}" id="checkme">
+					<label class="hide-finished" for="checkme">
+						Hide Finished Resolutions
+					</label>
+				<form class="new-resolution input-field">
+					<input type="text" name="title" id="title">
+					<label for="title">A New Resolution</label>
+					<input type="submit" value="Add">
+				</form>
 			{{/if}}
 		</header>
-		<ul>
-		{{#each resolutions}}
-		  {{>resolution}}
-		{{/each}}
+		<ul class="collection with-header">
+	        <li class="collection-header"><h4>All Tasks</h4></li>
+			{{#each resolutions}}
+			  {{>resolution}}
+			{{/each}}
 		</ul>
-		{{> loginButtons }}
+
 	</div>	
 </body>
+

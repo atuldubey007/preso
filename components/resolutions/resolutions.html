@@ -1,18 +1,18 @@
 <template name="resolution">
-	<li class="{{#if checked}}checked{{/if}}">
-		{{#if isOwner}}
-		<input type="checkbox" checked="{{checked}}" class="toggle-checked">
-			<button class="toggle-private">
-				{{#if private}}
-					Private
-				{{else}}
-					Public
-				{{/if}}
-			</button>
-		{{/if}}
-		<span class="text">{{title}}</span> 
-		{{#if isOwner}}
-			<button class="delete">X</button>
-		{{/if}}
+		<li class="collection-item {{#if checked}}blue{{/if}} lighten-5">
+
+		<div class="row">
+			<span class="toggle-checked" style="{{#if checked}}text-decoration: line-through;{{/if}}">{{title}}</span>
+			{{#if isOwner}}
+				<button class="delete btn red right">X</button>
+				<button class="toggle-private btn right">
+					{{#if private}}
+						Private
+					{{else}}
+						Public
+					{{/if}}
+				</button>
+			{{/if}}
+		</div>
 	</li>
 </template>
